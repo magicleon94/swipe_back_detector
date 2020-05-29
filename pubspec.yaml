@@ -1,0 +1,11 @@
+name: swipe_back_detector
+description: A detector to add "swipe to go back" functionality in custom routes or non Cupertino routes.
+version: 1.0.0
+homepage: https://github.com/magicleon94/swipe_back_detector
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
