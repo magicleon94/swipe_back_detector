@@ -65,7 +65,10 @@ class _SwipeBackDetectorState extends State<SwipeBackDetector> {
 
   void _onHorizontalDragEnd(DragEndDetails details) {
     if (_popGesturePerformed(details)) {
-      Navigator.of(context).pop(widget.popValue);
+      final navigator = Navigator.of(context);
+      if (navigator.canPop()) {
+        navigator.pop(widget.popValue);
+      }
     }
   }
 
