@@ -1,6 +1,6 @@
 name: swipe_back_detector
 description: A detector to add "swipe to go back" functionality in custom routes or non Cupertino routes.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/magicleon94/swipe_back_detector
 
 environment:
