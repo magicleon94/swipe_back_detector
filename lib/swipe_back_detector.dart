@@ -19,7 +19,7 @@ class SwipeBackDetector<T> extends StatefulWidget {
     Key key,
     this.child,
     this.cutoffVelocity = 600,
-    this.swipeAreaWidth = 5,
+    this.swipeAreaWidth = 50,
     this.verticalPadding = 0,
     this.popValue,
   }) : super(key: key);
@@ -31,7 +31,6 @@ class SwipeBackDetector<T> extends StatefulWidget {
 class _SwipeBackDetectorState extends State<SwipeBackDetector> {
   Offset dragStart;
   Rect swipeArea;
-  final cutoffVelocity = 600;
 
   @override
   void didChangeDependencies() {
@@ -46,7 +45,8 @@ class _SwipeBackDetectorState extends State<SwipeBackDetector> {
   }
 
   bool _popGesturePerformed(DragEndDetails dragEnd) {
-    return dragStart != null && dragEnd.primaryVelocity >= cutoffVelocity;
+    return dragStart != null &&
+        dragEnd.primaryVelocity >= widget.cutoffVelocity;
   }
 
   void _onHorizontalDragStart(DragStartDetails details) {

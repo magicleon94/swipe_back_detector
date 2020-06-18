@@ -1,4 +1,6 @@
 
+# 1.0.3
+Minor bugfixes
 # 1.0.2
 Improved GestureDetector behavior.
 # 1.0.1
