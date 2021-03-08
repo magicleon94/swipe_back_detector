@@ -1,4 +1,5 @@
-
+# 2.0.0
+Migrated to sound null safety.
 # 1.0.3
 Minor bugfixes
 # 1.0.2

@@ -13,11 +13,11 @@ class SwipeBackDetector<T> extends StatefulWidget {
   final double cutoffVelocity;
   final double swipeAreaWidth;
   final double verticalPadding;
-  final T popValue;
+  final T? popValue;
 
   const SwipeBackDetector({
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
     this.cutoffVelocity = 600,
     this.swipeAreaWidth = 50,
     this.verticalPadding = 0,
@@ -29,12 +29,12 @@ class SwipeBackDetector<T> extends StatefulWidget {
 }
 
 class _SwipeBackDetectorState extends State<SwipeBackDetector> {
-  Offset dragStart;
-  Rect swipeArea;
+  Offset? dragStart;
+  late Rect swipeArea;
 
   @override
   void didChangeDependencies() {
-    swipeArea ??= Rect.fromPoints(
+    swipeArea = Rect.fromPoints(
       Offset(0, widget.verticalPadding),
       Offset(
         widget.swipeAreaWidth,
@@ -46,7 +46,7 @@ class _SwipeBackDetectorState extends State<SwipeBackDetector> {
 
   bool _popGesturePerformed(DragEndDetails dragEnd) {
     return dragStart != null &&
-        dragEnd.primaryVelocity >= widget.cutoffVelocity;
+        (dragEnd.primaryVelocity ?? 0) >= widget.cutoffVelocity;
   }
 
   void _onHorizontalDragStart(DragStartDetails details) {
@@ -58,7 +58,7 @@ class _SwipeBackDetectorState extends State<SwipeBackDetector> {
   }
 
   void _onHorizontalDragUpdate(DragUpdateDetails details) {
-    if (details.primaryDelta < 0) {
+    if ((details.primaryDelta ?? 0) < 0) {
       dragStart = null; //cancel the gesture if we're going back
     }
   }

@@ -22,7 +22,7 @@ class FirstScreen extends StatelessWidget {
         title: Text("Swipe back detector example"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text("Push route"),
           onPressed: () {
             Navigator.of(context).push(
@@ -65,10 +65,10 @@ class SecondScreen extends StatelessWidget {
 }
 
 class MyCustomRoute extends PageRouteBuilder {
-  final RouteSettings routeSettings;
+  final RouteSettings? routeSettings;
 
   MyCustomRoute({
-    @required Widget widget,
+    required Widget widget,
     this.routeSettings,
   }) : super(
           settings: routeSettings,
